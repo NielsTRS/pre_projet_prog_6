@@ -1,17 +1,13 @@
 package Modele;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Iterator;
 
-public class Niveau {
+public class Grille {
     private ArrayList<Case> cases;
     private int lignes;
     private int colonnes;
 
-    public Niveau(int lignes, int colonnes) {
+    public Grille(int lignes, int colonnes) {
         this.ajouterCases();
         this.lignes = lignes;
         this.colonnes = colonnes;
@@ -21,17 +17,17 @@ public class Niveau {
         this.cases = new ArrayList<>();
         for (int i = 0; i < lignes; i++) {
             for (int j = 0; j < colonnes; j++) {
-                Case case = new Case(i, j);
+                Case carre = new Case(i, j);
                 if (i == 0 && j == 0) {
-                    case.empoisonerCase();
+                    carre.empoisonerCase();
                 }
-                this.cases.add(case);
+                this.cases.add(carre);
             }
         }
     }
 
-    public void mangerCase(Case case) {
-        case.mangerCase();
+    public void mangerCase(Case carre) {
+        carre.mangerCase();
     }
 
     public int getLignes() {
@@ -43,6 +39,6 @@ public class Niveau {
     }
 
     public Case getCase(int i, int j) {
-        return cases[j * colonnes + i];
+        return this.cases.get(j * colonnes + i);
     }
 }
