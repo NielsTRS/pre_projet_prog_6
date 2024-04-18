@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class Examen extends KeyAdapter implements ActionListener {
+public class Jeu extends KeyAdapter implements ActionListener {
     private Niveau niveau;
     private Timer timer;
     private Affichage affichage;
@@ -17,12 +17,12 @@ public class Examen extends KeyAdapter implements ActionListener {
     public static void start(JFrame frame) {
         Niveau niveau = new Niveau();
         Affichage affichage = new Affichage(niveau);
-        Examen examen = new Examen(niveau, affichage);
+        Jeu examen = new Jeu(niveau, affichage);
         frame.add(affichage);
         frame.addKeyListener(examen);
     }
 
-    public Examen(Niveau niveau, Affichage affichage) {
+    public Jeu(Niveau niveau, Affichage affichage) {
         this.niveau = niveau;
         this.affichage = affichage;
         this.timer = new Timer(1000, this);
