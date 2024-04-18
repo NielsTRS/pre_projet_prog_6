@@ -17,11 +17,11 @@ public class Grille {
         this.cases = new ArrayList<>();
         for (int i = 0; i < lignes; i++) {
             for (int j = 0; j < colonnes; j++) {
-                Case carre = new Case(i, j);
+                Case c = new Case(i, j);
                 if (i == 0 && j == 0) {
-                    carre.empoisonerCase();
+                    c.empoisonerCase();
                 }
-                this.cases.add(carre);
+                this.cases.add(c);
             }
         }
     }
