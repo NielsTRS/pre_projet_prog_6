@@ -26,6 +26,10 @@ public class Grille {
         }
     }
 
+    public void mange(int x, int y) {
+        
+    }
+
     public void mangerCase(Case c) {
         c.mangerCase();
     }
@@ -38,8 +42,8 @@ public class Grille {
         return this.colonnes;
     }
 
-    public Case getCase(int i, int j) {
-        return this.cases.get(j * colonnes + i);
+    public Case getCase(int x, int y) {
+        return this.cases.get(y * colonnes + x);
     }
 
     public ArrayList<Case> getCases() {

@@ -1,53 +1,45 @@
 package Controleur;
 
-import Modele.Niveau;
+import Modele.Grille;
+import Modele.Case;
 import Vue.Affichage;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
-public class Jeu extends KeyAdapter implements ActionListener {
-    private Niveau niveau;
-    private Timer timer;
+public class Jeu extends MouseAdapter {
+    private Grille grille;
     private Affichage affichage;
 
     public static void start(JFrame frame) {
-        Niveau niveau = new Niveau();
-        Affichage affichage = new Affichage(niveau);
-        Jeu examen = new Jeu(niveau, affichage);
+        Grille grille = new Grille(6,7); // A MODIFIER
+        Affichage affichage = new Affichage(grille);
+        Jeu examen = new Jeu(grille, affichage);
         frame.add(affichage);
-        frame.addKeyListener(examen);
+        frame.addMouseListener(examen);
     }
 
-    public Jeu(Niveau niveau, Affichage affichage) {
-        this.niveau = niveau;
+    public Jeu(Grille grille, Affichage affichage) {
+        this.grille = grille;
         this.affichage = affichage;
-        this.timer = new Timer(1000, this);
-        timer.start();
     }
 
     @Override
-    public void actionPerformed(ActionEvent actionEvent) {
-        niveau.update();
-        if (niveau.collision()) {
-            timer.stop();
-        }
-        affichage.repaint();
-    }
+    public void mousePressed(MouseEvent e) {
+        // Cordonnées du clic
+        int x = e.getX();
+        int y = e.getY();
 
-    @Override
-    public void keyPressed(KeyEvent e) {
-        switch (e.getKeyCode()) {
-            case KeyEvent.VK_LEFT:
-                niveau.getPersonnage().deplacerGauche();
-                break;
-            case KeyEvent.VK_RIGHT:
-                niveau.getPersonnage().deplacerDroit();
-                break;
+        // Cordonnées de la case
+        x = x / (affichage.getSize().width * grille.getColonnes());
+        y = y / (affichage.getSize().height * grille.getLignes());
+
+        Case c = grille.getCase(x, y);
+
+        if (!c.getEstMange()) {
+            grille.mange(x, y);
+            affichage.repaint();
         }
-        affichage.repaint();
     }
 }
