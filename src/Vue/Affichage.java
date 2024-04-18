@@ -58,4 +58,13 @@ public class Affichage extends JComponent {
             return null;
         }
     }
+
+    int getHauteurCase() {
+        return hauteurCase;
+    }
+
+    int getLargeurCase() {
+        return largeurCase;
+    }
+
 }
