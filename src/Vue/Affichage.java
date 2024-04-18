@@ -10,56 +10,14 @@ import java.io.FileInputStream;
 
 
 public class Affichage extends JComponent {
-    Image gauffreEmpoisonne = charge("res/Images/gauffre_empoisonne.png");
-    Image gauffreNormal = charge("res/Images/gauffre.png");
-    private Grille grille;
+    private ZoneGauffre zoneGauffre;
 
-    //TODO : faire classe zone avec les tailles des zones
-    int largeurCase;
-    int hauteurCase;
     int largeurFenetre;
     int hauteurFenetre;
     int largeurGauffre;
     int hauteurGauffre;
 
-    public Affichage(Grille grille) {
-        this.grille = grille;
-    }
-
-    private void paintGauffre(Graphics g) {
-        largeurCase = largeurGauffre / grille.getColonnes();
-        hauteurCase = hauteurGauffre / grille.getLignes();
-
-        //TODO: faire condition de fin de partie
-        if (grille.getFin()) {
-            g.drawString("Fin de la partie", largeurGauffre / 2, hauteurGauffre / 2);
-        } else{
-            for (Case c : grille.getCases()) {
-                if (c.getEstMange()) {
-                    continue; // Passe à l'itération suivante si la case est déjà mangée
-                }
-
-                if (c.getEstPoisson()) {
-                    g.drawImage(gauffreEmpoisonne, c.getX() * largeurCase, c.getY() * hauteurCase, largeurCase, hauteurCase, null);
-                } else {
-                    g.drawImage(gauffreNormal, c.getX() * largeurCase, c.getY() * hauteurCase, largeurCase, hauteurCase, null);
-                }
-                // TODO : changer en var de case dans
-            }
-        }
-    }
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        largeurFenetre = getSize().width;
-        largeurGauffre = largeurFenetre - largeurFenetre / 3;
-        hauteurFenetre = getSize().height;
-        hauteurGauffre = hauteurFenetre;
-        paintGauffre(g);
-
-    }
-
-    public Image charge(String nom) {
+    public static Image charge(String nom) {
         try {
             return ImageIO.read(new FileInputStream(nom));
         } catch (Exception e) {
@@ -69,6 +27,19 @@ public class Affichage extends JComponent {
         }
     }
 
+    public Affichage(Grille grille) {
+        this.zoneGauffre = new ZoneGauffre(grille);
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        largeurFenetre = getSize().width;
+        largeurGauffre = largeurFenetre - largeurFenetre / 3;
+        hauteurFenetre = getSize().height;
+        hauteurGauffre = hauteurFenetre;
+        this.zoneGauffre.paintGauffre(g, largeurGauffre, hauteurGauffre);
+    }
+
     public int getHauteurGrille() {
         return hauteurGauffre;
     }
@@ -76,13 +47,4 @@ public class Affichage extends JComponent {
     public int getLargeurGrille() {
         return largeurGauffre;
     }
-
-    public int getHauteurCase() {
-        return hauteurCase;
-    }
-
-    public int getLargeurCase() {
-        return largeurCase;
-    }
-
 }
