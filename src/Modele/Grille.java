@@ -27,7 +27,14 @@ public class Grille {
     }
 
     public void mange(int x, int y) {
-        
+        for (int j = y; j < lignes; j++) {
+            for (int i = x; i < colonnes; i++) {
+                Case c = getCase(i, j);
+                if (!c.getEstMange()) {
+                    c.mangerCase();
+                }
+            }
+        }
     }
 
     public void mangerCase(Case c) {

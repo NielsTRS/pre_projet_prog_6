@@ -40,5 +40,4 @@ public class Case {
     public boolean getEstPoisson() {
         return this.estPoison;
     }
-
 }
