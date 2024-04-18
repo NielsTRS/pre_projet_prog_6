@@ -17,11 +17,11 @@ public class CaseTest {
     @Test
     public void testEtat() {
         Case c = new Case(0, 0);
-        assertFalse(c.getEstMange());
-        assertFalse(c.getEstPoisson());
+        assertFalse("La case ne doit pas être mangée", c.getEstMange());
+        assertFalse("La case ne doit pas être empoisonnée", c.getEstPoisson());
         c.empoisonnerCase();
-        assertTrue(c.getEstPoisson());
+        assertTrue("La case doit être empoisonnée", c.getEstPoisson());
         c.mangerCase();
-        assertTrue(c.getEstMange());
+        assertTrue("La case doit être mangée", c.getEstMange());
     }
 }
