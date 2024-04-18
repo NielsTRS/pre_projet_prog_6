@@ -10,6 +10,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.FileInputStream;
 
+import static java.util.function.Predicate.not;
+
 public class Affichage extends JComponent {
     Image gauffreEmpoisonne = charge("res/Images/gauffre_empoisonne.png");
     Image gauffreNormal = charge("res/Images/gauffre.png");
@@ -33,15 +35,15 @@ public class Affichage extends JComponent {
             g.drawString("Fin de la partie", getWidth() / 2, getHeight() / 2);
         } else {
             for (Case c : grille.getCases()) {
-                switch (c.getEtat()){
+                if(!(c.getEstMange())){
+                    if(c.getEstPoisson()){
+                        g.drawImage(gauffreNormal, c.getX(), c.getY(), largeurCase, hauteurCase, null);
+                    }
+                    else{
+                        g.drawImage(gauffreNormal, c.getX(), c.getY(), largeurCase, hauteurCase, null);
+                    }
                     //TODO : changer en var de case dans
-                    case 0:
-                        g.drawImage(gauffreNormal, c.getX(), c.getY(), largeurCase, hauteurCase, null);
-                        break;
-                    case 1:
-                        break;
-                    case 2:
-                        g.drawImage(gauffreNormal, c.getX(), c.getY(), largeurCase, hauteurCase, null);
+
 
                 }
 
