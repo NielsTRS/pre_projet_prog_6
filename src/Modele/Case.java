@@ -4,23 +4,23 @@ public class Case {
     final private int x;
     final private int y;
     private int etat; //0 = pas manger, 1 = mange, 2 = poison
-    static final int PASMANGER = 0;
-    static final int MANGER = 1;
+    static final int PASMANGE = 0;
+    static final int MANGE = 1;
     static final int POISON = 2;
 
 
     public Case(int x, int y) {
         this.x = x;
         this.y = y;
-        this.etat = PASMANGER;
+        this.etat = PASMANGE;
     }
 
     public void mangerCase(){
-        if (etat == PASMANGER){
-            etat = MANGER;
+        if (etat == PASMANGE){
+            etat = MANGE;
         }
         else {
-            System.out.println("casse deja mange :" + x + y);
+            System.out.println("case deja mangee :" + x + y);
         }
     }
 
