@@ -41,4 +41,8 @@ public class Grille {
     public Case getCase(int i, int j) {
         return this.cases.get(j * colonnes + i);
     }
+
+    public ArrayList<Case> getCases() {
+        return this.cases;
+    }
 }
