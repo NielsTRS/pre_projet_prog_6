@@ -3,22 +3,22 @@ package Modele;
 import java.util.ArrayList;
 
 public class Grille {
-    private ArrayList<Case> cases;
     private int lignes;
     private int colonnes;
+    private ArrayList<Case> cases;
 
     public Grille(int lignes, int colonnes) {
-        this.ajouterCases();
         this.lignes = lignes;
         this.colonnes = colonnes;
+        this.ajouterCases();
     }
 
     public void ajouterCases() {
         this.cases = new ArrayList<>();
-        for (int j = 0; j < lignes; j++) {
-            for (int i = 0; i < colonnes; i++) {
+        for (int j = 0; j < this.lignes; j++) {
+            for (int i = 0; i < this.colonnes; i++) {
                 Case c = new Case(i, j);
-                if (i == 0 && j == 0) {
+                if(i == 0 && j == 0){
                     c.empoisonnerCase();
                 }
                 this.cases.add(c);

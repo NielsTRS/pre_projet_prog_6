@@ -19,7 +19,7 @@ public class CaseTest {
         Case c = new Case(0, 0);
         assertFalse(c.getEstMange());
         assertFalse(c.getEstPoisson());
-        c.empoisonerCase();
+        c.empoisonnerCase();
         assertTrue(c.getEstPoisson());
         c.mangerCase();
         assertTrue(c.getEstMange());
