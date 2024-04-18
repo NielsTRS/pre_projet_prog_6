@@ -19,7 +19,7 @@ public class Grille {
             for (int i = 0; i < colonnes; i++) {
                 Case c = new Case(i, j);
                 if (i == 0 && j == 0) {
-                    c.empoisonerCase();
+                    c.empoisonnerCase();
                 }
                 this.cases.add(c);
             }

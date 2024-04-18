@@ -21,7 +21,7 @@ public class Case {
         }
     }
 
-    public void empoisonerCase() {
+    public void empoisonnerCase() {
         this.estPoison = true;
     }
 
