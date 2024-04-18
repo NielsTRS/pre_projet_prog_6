@@ -69,18 +69,18 @@ public class Affichage extends JComponent {
         }
     }
 
-    int getHauteurGrille(){
+    public int getHauteurGrille(){
         return hauteurGauffre;
     }
-    int getLargeurGrille(){
+    public int getLargeurGrille(){
         return largeurGauffre;
     }
 
-    int getHauteurCase() {
+    public int getHauteurCase() {
         return hauteurCase;
     }
 
-    int getLargeurCase() {
+    public int getLargeurCase() {
         return largeurCase;
     }
 
