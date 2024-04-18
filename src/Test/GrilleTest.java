@@ -15,9 +15,9 @@ public class GrilleTest {
         Case c = g.getCase(0, 0);
         assertNotNull(c);
         assert g.getLignes() == 5 && g.getColonnes() == 5;
-        assertTrue(c.getEstPoisson());
+        assertTrue("La case doit être empoisonnée",c.getEstPoisson());
         g.mangerCase(c);
-        assertTrue(c.getEstMange());
+        assertTrue("La case doit être mangée", c.getEstMange());
     }
 
     @Test
@@ -28,6 +28,18 @@ public class GrilleTest {
                 Case c = g.getCase(i, j);
                 assertEquals("La case n'est pas à la bonne position", i, c.getX());
                 assertEquals("La case n'est pas à la bonne position", j, c.getY());
+            }
+        }
+    }
+
+    @Test
+    public void testMangeCases(){
+        Grille g = new Grille(3, 3);
+        g.mange(0, 0);
+        for (int j = 0; j < g.getLignes(); j++) {
+            for (int i = 0; i < g.getColonnes(); i++) {
+                Case c = g.getCase(i, j);
+                assertTrue("La case doit être mangée", c.getEstMange());
             }
         }
     }
