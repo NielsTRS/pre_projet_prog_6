@@ -12,18 +12,6 @@ public class JeuPrincipal implements Runnable {
         SwingUtilities.invokeLater(new JeuPrincipal());
     }
 
-    // je n'arrive pas à utiliser cette méthode pour charger les images
-    static Image charge(String nom) {
-        try {
-            ClassLoader cl = ClassLoader.getSystemClassLoader();
-            return ImageIO.read(cl.getResourceAsStream(nom));
-        } catch (Exception e) {
-            System.err.println("Erreur imprévue");
-            System.exit(1);
-            return null;
-        }
-    }
-
     @Override
     public void run() {
         JFrame frame = new JFrame("Exam PROG6");

@@ -8,7 +8,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.io.IOException;
 
 public class Examen extends KeyAdapter implements ActionListener {
     private Niveau niveau;
@@ -17,12 +16,7 @@ public class Examen extends KeyAdapter implements ActionListener {
 
     public static void start(JFrame frame) {
         Niveau niveau = new Niveau();
-        Affichage affichage;
-        try {
-            affichage = new Affichage(niveau);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        Affichage affichage = new Affichage(niveau);
         Examen examen = new Examen(niveau, affichage);
         frame.add(affichage);
         frame.addKeyListener(examen);

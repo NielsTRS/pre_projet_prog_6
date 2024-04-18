@@ -7,14 +7,13 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.io.FileInputStream;
-import java.io.IOException;
 
 public class Affichage extends JComponent {
-    Image imagePousseur = ImageIO.read(new FileInputStream("res/Images/Pousseur.png"));
-    Image imageCaisse = ImageIO.read(new FileInputStream("res/Images/Caisse.png"));
+    Image imagePousseur = charge("res/Images/Pousseur.png");
+    Image imageCaisse = charge("res/Images/Caisse.png");
     private Niveau niveau;
 
-    public Affichage(Niveau niveau) throws IOException {
+    public Affichage(Niveau niveau) {
         this.niveau = niveau;
     }
 
@@ -27,6 +26,16 @@ public class Affichage extends JComponent {
             for (Caisse caisse : niveau.getCaisses()) {
                 g.drawImage(imageCaisse, caisse.getX(), caisse.getY(), null);
             }
+        }
+    }
+
+    public Image charge(String nom) {
+        try {
+            return ImageIO.read(new FileInputStream(nom));
+        } catch (Exception e) {
+            System.err.println("Impossible de charger l'image " + nom);
+            System.exit(1);
+            return null;
         }
     }
 }
