@@ -15,8 +15,8 @@ public class Grille {
 
     public void ajouterCases() {
         this.cases = new ArrayList<>();
-        for (int i = 0; i < lignes; i++) {
-            for (int j = 0; j < colonnes; j++) {
+        for (int j = 0; j < lignes; j++) {
+            for (int i = 0; i < colonnes; i++) {
                 Case c = new Case(i, j);
                 if (i == 0 && j == 0) {
                     c.empoisonerCase();

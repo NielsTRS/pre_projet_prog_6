@@ -3,7 +3,7 @@ package Vue;
 import Modele.Caisse;
 import Modele.Case;
 import Modele.Grille;
-import Modele.Niveau;
+/* import Modele.Niveau; */
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
