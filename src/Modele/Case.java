@@ -40,4 +40,14 @@ public class Case {
     public boolean getEstPoisson() {
         return this.estPoison;
     }
+
+    @Override
+    public String toString() {
+        return "Case{" +
+                "x=" + x +
+                ", y=" + y +
+                ", estPoison=" + estPoison +
+                ", estMange=" + estMange +
+                '}';
+    }
 }
