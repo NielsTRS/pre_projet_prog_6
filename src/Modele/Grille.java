@@ -26,8 +26,8 @@ public class Grille {
         }
     }
 
-    public void mangerCase(Case carre) {
-        carre.mangerCase();
+    public void mangerCase(Case c) {
+        c.mangerCase();
     }
 
     public int getLignes() {
