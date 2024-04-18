@@ -1,6 +1,6 @@
 package Test;
 
-import Modele.Niveau;
+import Modele.Grille;
 import Vue.Affichage;
 import org.junit.Test;
 import java.awt.Image;
@@ -10,7 +10,7 @@ public class AffichageTest {
 
     @Test
     public void testCharge() {
-        Affichage affichage = new Affichage(new Niveau());
+        Affichage affichage = new Affichage(new Grille(5, 5));
         Image image = affichage.charge("res/Images/gauffre.png");
         assertNotNull("L'image ne doit pas être null", image);
     }
