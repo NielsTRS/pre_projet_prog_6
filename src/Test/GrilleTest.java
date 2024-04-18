@@ -21,7 +21,7 @@ public class GrilleTest {
     }
 
     @Test
-    public void testAjouterCases() {
+    public void testXY() {
         Grille g = new Grille(3, 5);
         g.ajouterCases();
         for (int j = 0; j < g.getLignes(); j++) {
