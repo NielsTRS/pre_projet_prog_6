@@ -1,4 +1,4 @@
-package Controller;
+package Controleur;
 
 import Modele.Niveau;
 import Vue.Affichage;

@@ -1,6 +1,6 @@
 import javax.swing.*;
 
-import Controller.Jeu;
+import Controleur.Jeu;
 
 public class JeuPrincipal implements Runnable {
     public static void main(String[] args) {
