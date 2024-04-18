@@ -4,9 +4,9 @@ public class Case {
     final private int x;
     final private int y;
     private int etat; //0 = pas manger, 1 = mange, 2 = poison
-    static final int PASMANGE = 0;
-    static final int MANGE = 1;
-    static final int POISON = 2;
+    public static final int PASMANGE = 0;
+    public static final int MANGE = 1;
+    public static final int POISON = 2;
 
 
     public Case(int x, int y) {
