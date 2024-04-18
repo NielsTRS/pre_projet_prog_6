@@ -4,6 +4,8 @@ import Modele.Case;
 import Modele.Grille;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
 public class GrilleTest {
@@ -16,5 +18,18 @@ public class GrilleTest {
         assertTrue(c.getEstPoisson());
         g.mangerCase(c);
         assertTrue(c.getEstMange());
+    }
+
+    @Test
+    public void testAjouterCases() {
+        Grille g = new Grille(3, 5);
+        g.ajouterCases();
+        for (int j = 0; j < g.getLignes(); j++) {
+            for (int i = 0; i < g.getColonnes(); i++) {
+                Case c = g.getCase(i, j);
+                assertEquals("La case n'est pas à la bonne position", i, c.getX());
+                assertEquals("La case n'est pas à la bonne position", j, c.getY());
+            }
+        }
     }
 }
