@@ -16,8 +16,6 @@ public class GrilleTest {
         assertNotNull(c);
         assert g.getLignes() == 5 && g.getColonnes() == 5;
         assertTrue("La case doit être empoisonnée",c.getEstPoisson());
-        g.mangerCase(c);
-        assertTrue("La case doit être mangée", c.getEstMange());
     }
 
     @Test

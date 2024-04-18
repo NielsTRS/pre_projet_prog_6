@@ -15,9 +15,9 @@ public class Jeu extends MouseAdapter {
     public static void start(JFrame frame) {
         Grille grille = new Grille(6,7); // A MODIFIER
         Affichage affichage = new Affichage(grille);
-        Jeu examen = new Jeu(grille, affichage);
+        Jeu j = new Jeu(grille, affichage);
         frame.add(affichage);
-        frame.addMouseListener(examen);
+        affichage.addMouseListener(j);
     }
 
     public Jeu(Grille grille, Affichage affichage) {
@@ -31,13 +31,18 @@ public class Jeu extends MouseAdapter {
         int x = e.getX();
         int y = e.getY();
 
-        // Cordonnées de la case
-        x = x / (affichage.getSize().width * grille.getColonnes());
-        y = y / (affichage.getSize().height * grille.getLignes());
+        if (x < affichage.getLargeurGrille()) {
 
-        Case c = grille.getCase(x, y);
+            // Taille d'une cellule
+            int cellWidth = affichage.getLargeurGrille() / grille.getColonnes();
+            int cellHeight = affichage.getHauteurGrille() / grille.getLignes();
 
-        if (!c.getEstMange()) {
+            // Cordonnées de la case
+            x = x / cellWidth;
+            y = y / cellHeight;
+
+            System.out.println("Clic en (" + x + ", " + y + ")");
+
             grille.mange(x, y);
             affichage.repaint();
         }
