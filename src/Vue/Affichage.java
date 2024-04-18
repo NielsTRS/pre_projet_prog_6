@@ -9,8 +9,8 @@ import java.awt.*;
 import java.io.FileInputStream;
 
 public class Affichage extends JComponent {
-    Image imagePousseur = charge("res/Images/Pousseur.png");
-    Image imageCaisse = charge("res/Images/Caisse.png");
+    Image imagePousseur = charge("res/Images/gauffre_empoisonne.png");
+    Image imageCaisse = charge("res/Images/gauffre.png");
     private Niveau niveau;
 
     public Affichage(Niveau niveau) {
