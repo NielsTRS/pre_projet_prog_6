@@ -13,24 +13,22 @@ public class Affichage extends JComponent {
     Image gauffreEmpoisonne = charge("res/Images/gauffre_empoisonne.png");
     Image gauffreNormal = charge("res/Images/gauffre.png");
     private Grille grille;
+
+    //TODO : faire classe zone avec les tailles des zones
     int largeurCase;
     int hauteurCase;
     int largeurFenetre;
     int hauteurFenetre;
+    int largeurGauffre;
+    int hauteurGauffre;
 
     public Affichage(Grille grille) {
         this.grille = grille;
     }
 
-
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        largeurFenetre = getSize().width;
-        largeurFenetre -= largeurFenetre/3;
-        hauteurFenetre = getSize().height;
-        largeurCase = largeurFenetre / grille.getColonnes();
-        hauteurCase = hauteurFenetre / grille.getLignes();
+    private void paintGauffre(Graphics g){
+        largeurCase = largeurGauffre / grille.getColonnes();
+        hauteurCase = hauteurGauffre / grille.getLignes();
 
         //TODO: faire condition de fin de partie
         /*if(false){
@@ -49,7 +47,15 @@ public class Affichage extends JComponent {
             // TODO : changer en var de case dans
         }
         //}
+    }
 
+    @Override
+    protected void paintComponent(Graphics g) {
+        largeurFenetre = getSize().width;
+        largeurGauffre = largeurFenetre - largeurFenetre/3;
+        hauteurFenetre = getSize().height;
+        hauteurGauffre = hauteurFenetre;
+        paintGauffre(g);
 
     }
 
@@ -64,10 +70,10 @@ public class Affichage extends JComponent {
     }
 
     int getHauteurGrille(){
-        return 1;
+        return hauteurGauffre;
     }
     int getLargeurGrille(){
-        return 1;
+        return largeurGauffre;
     }
 
     int getHauteurCase() {
