@@ -4,6 +4,9 @@ import Modele.Case;
 
 import org.junit.Test;
 
+import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+
 public class CaseTest {
     @Test
     public void testXY() {
@@ -14,10 +17,11 @@ public class CaseTest {
     @Test
     public void testEtat() {
         Case c = new Case(0, 0);
-        assert c.getEtat() == 0;
+        assertFalse(c.getEstMange());
+        assertFalse(c.getEstPoisson());
         c.empoisonerCase();
-        assert c.getEtat() == Case.POISON;
+        assertTrue(c.getEstPoisson());
         c.mangerCase();
-        assert c.getEtat() == Case.MANGE;
+        assertTrue(c.getEstMange());
     }
 }
