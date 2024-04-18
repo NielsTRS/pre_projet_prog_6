@@ -16,8 +16,6 @@ public class Case {
     public void mangerCase() {
         if (!this.estMange) {
             this.estMange = true;
-        } else {
-            System.out.println("case deja mangee :" + x + y);
         }
     }
 

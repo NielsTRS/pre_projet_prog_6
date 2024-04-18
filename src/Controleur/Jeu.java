@@ -43,12 +43,8 @@ public class Jeu extends MouseAdapter {
 
             System.out.println("Clic en (" + x + ", " + y + ")");
 
-            Case c = grille.getCase(x, y);
-
-            if (!c.getEstMange()) {
-                grille.mange(x, y);
-                affichage.repaint();
-            }
+            grille.mange(x, y);
+            affichage.repaint();
         }
     }
 }
