@@ -6,6 +6,7 @@ public class Grille {
     private int lignes;
     private int colonnes;
     private ArrayList<Case> cases;
+    private boolean fin;
 
     public Grille(int lignes, int colonnes) {
         this.lignes = lignes;
@@ -33,6 +34,9 @@ public class Grille {
                 if (!c.getEstMange()) {
                     c.mangerCase();
                 }
+                if(c.getEstPoisson()){
+                    this.fin = true;
+                }
             }
         }
     }
@@ -51,5 +55,9 @@ public class Grille {
 
     public ArrayList<Case> getCases() {
         return this.cases;
+    }
+
+    public boolean getFin() {
+        return this.fin;
     }
 }

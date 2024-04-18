@@ -26,33 +26,33 @@ public class Affichage extends JComponent {
         this.grille = grille;
     }
 
-    private void paintGauffre(Graphics g){
+    private void paintGauffre(Graphics g) {
         largeurCase = largeurGauffre / grille.getColonnes();
         hauteurCase = hauteurGauffre / grille.getLignes();
 
         //TODO: faire condition de fin de partie
-        /*if(false){
-            g.drawString("Fin de la partie", getWidth() / 2, getHeight() / 2);
-        } else {*/
-        for (Case c : grille.getCases()) {
-            if(c.getEstMange()) {
-                continue; // Passe à l'itération suivante si la case est déjà mangée
-            }
+        if (grille.getFin()) {
+            g.drawString("Fin de la partie", largeurGauffre / 2, hauteurGauffre / 2);
+        } else{
+            for (Case c : grille.getCases()) {
+                if (c.getEstMange()) {
+                    continue; // Passe à l'itération suivante si la case est déjà mangée
+                }
 
-            if(c.getEstPoisson()) {
-                g.drawImage(gauffreEmpoisonne, c.getX()*largeurCase, c.getY()*hauteurCase, largeurCase, hauteurCase, null);
-            } else {
-                g.drawImage(gauffreNormal, c.getX()*largeurCase, c.getY()*hauteurCase, largeurCase, hauteurCase, null);
+                if (c.getEstPoisson()) {
+                    g.drawImage(gauffreEmpoisonne, c.getX() * largeurCase, c.getY() * hauteurCase, largeurCase, hauteurCase, null);
+                } else {
+                    g.drawImage(gauffreNormal, c.getX() * largeurCase, c.getY() * hauteurCase, largeurCase, hauteurCase, null);
+                }
+                // TODO : changer en var de case dans
             }
-            // TODO : changer en var de case dans
         }
-        //}
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         largeurFenetre = getSize().width;
-        largeurGauffre = largeurFenetre - largeurFenetre/3;
+        largeurGauffre = largeurFenetre - largeurFenetre / 3;
         hauteurFenetre = getSize().height;
         hauteurGauffre = hauteurFenetre;
         paintGauffre(g);
@@ -69,10 +69,11 @@ public class Affichage extends JComponent {
         }
     }
 
-    public int getHauteurGrille(){
+    public int getHauteurGrille() {
         return hauteurGauffre;
     }
-    public int getLargeurGrille(){
+
+    public int getLargeurGrille() {
         return largeurGauffre;
     }
 
