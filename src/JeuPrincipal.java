@@ -27,16 +27,7 @@ public class JeuPrincipal implements Runnable {
     @Override
     public void run() {
         JFrame frame = new JFrame("Exam PROG6");
-        Niveau niveau = new Niveau();
-        Affichage affichage = null;
-        try {
-            affichage = new Affichage(niveau);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        Examen examen = new Examen(niveau, affichage);
-        frame.add(affichage);
-        frame.addKeyListener(examen);
+        Examen.start(frame);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500, 500);
         frame.setVisible(true);
