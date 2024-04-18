@@ -15,15 +15,20 @@ public class Affichage extends JComponent {
     private Grille grille;
     int largeurCase;
     int hauteurCase;
+    int largeurFenetre;
+    int hauteurFenetre;
 
     public Affichage(Grille grille) {
         this.grille = grille;
     }
 
+
+
     @Override
     protected void paintComponent(Graphics g) {
-        int largeurFenetre = getSize().width;
-        int hauteurFenetre = getSize().height;
+        largeurFenetre = getSize().width;
+        largeurFenetre -= largeurFenetre/3;
+        hauteurFenetre = getSize().height;
         largeurCase = largeurFenetre / grille.getColonnes();
         hauteurCase = hauteurFenetre / grille.getLignes();
 
@@ -44,6 +49,8 @@ public class Affichage extends JComponent {
             // TODO : changer en var de case dans
         }
         //}
+
+
     }
 
     public Image charge(String nom) {
