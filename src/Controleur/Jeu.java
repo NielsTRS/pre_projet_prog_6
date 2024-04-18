@@ -31,11 +31,11 @@ public class Jeu extends MouseAdapter {
         int x = e.getX();
         int y = e.getY();
 
-        if (x < affichage.getZoneGauffre().getHauteurGauffre()) {
+        if (x < affichage.getZoneGauffre().getTaille()) {
 
             // Taille d'une cellule
-            int cellWidth = affichage.getZoneGauffre().getLargeurGauffre() / grille.getColonnes();
-            int cellHeight = affichage.getZoneGauffre().getHauteurGauffre() / grille.getLignes();
+            int cellWidth = affichage.getZoneGauffre().getTaille() / grille.getColonnes();
+            int cellHeight = affichage.getZoneGauffre().getTaille() / grille.getLignes();
 
             // Cordonnées de la case
             x = x / cellWidth;

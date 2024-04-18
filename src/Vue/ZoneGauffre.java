@@ -9,19 +9,18 @@ public class ZoneGauffre {
     Image gauffreEmpoisonne = Affichage.charge("res/Images/gauffre_empoisonne.png");
     Image gauffreNormal = Affichage.charge("res/Images/gauffre.png");
     private Grille grille;
-    private int largeurGauffre;
-    private int hauteurGauffre;
+    private int taille;
 
     public ZoneGauffre(Grille grille) {
         this.grille = grille;
     }
 
     public void paintGauffre(Graphics g) {
-        int largeurCase = this.largeurGauffre / grille.getColonnes();
-        int hauteurCase = this.hauteurGauffre / grille.getLignes();
+        int largeurCase = this.taille / grille.getColonnes();
+        int hauteurCase = this.taille / grille.getLignes();
 
         if (grille.getFin()) {
-            g.drawString("Fin de la partie", this.largeurGauffre / 2, this.hauteurGauffre / 2);
+            g.drawString("Fin de la partie", this.taille / 2, this.taille / 2);
         } else {
             for (Case c : grille.getCases()) {
                 if (!c.getEstMange()) {
@@ -35,19 +34,11 @@ public class ZoneGauffre {
         }
     }
 
-    public void setLargeurGauffre(int largeurGauffre) {
-        this.largeurGauffre = largeurGauffre;
+    public void setTaille(int largeurGauffre, int hauteurGauffre) {
+        this.taille = Math.min(largeurGauffre, hauteurGauffre);
     }
 
-    public void setHauteurGauffre(int hauteurGauffre) {
-        this.hauteurGauffre = hauteurGauffre;
-    }
-
-    public int getLargeurGauffre() {
-        return largeurGauffre;
-    }
-
-    public int getHauteurGauffre() {
-        return hauteurGauffre;
+    public int getTaille() {
+        return this.taille;
     }
 }

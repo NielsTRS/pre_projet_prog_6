@@ -27,8 +27,7 @@ public class Affichage extends JComponent {
 
     @Override
     protected void paintComponent(Graphics g) {
-        this.zoneGauffre.setLargeurGauffre(getSize().width - getSize().width / 3);
-        this.zoneGauffre.setHauteurGauffre(getSize().height);
+        this.zoneGauffre.setTaille(getSize().width - getSize().width / 3, getSize().height);
         this.zoneGauffre.paintGauffre(g);
     }
 
