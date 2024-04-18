@@ -13,7 +13,7 @@ public class Jeu extends MouseAdapter {
     private Affichage affichage;
 
     public static void start(JFrame frame) {
-        Grille grille = new Grille(6,7); // A MODIFIER
+        Grille grille = new Grille(6, 7); // A MODIFIER
         Affichage affichage = new Affichage(grille);
         Jeu j = new Jeu(grille, affichage);
         frame.add(affichage);
@@ -31,11 +31,11 @@ public class Jeu extends MouseAdapter {
         int x = e.getX();
         int y = e.getY();
 
-        if (x < affichage.getLargeurGrille()) {
+        if (x < affichage.getZoneGauffre().getHauteurGauffre()) {
 
             // Taille d'une cellule
-            int cellWidth = affichage.getLargeurGrille() / grille.getColonnes();
-            int cellHeight = affichage.getHauteurGrille() / grille.getLignes();
+            int cellWidth = affichage.getZoneGauffre().getLargeurGauffre() / grille.getColonnes();
+            int cellHeight = affichage.getZoneGauffre().getHauteurGauffre() / grille.getLignes();
 
             // Cordonnées de la case
             x = x / cellWidth;

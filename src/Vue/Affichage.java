@@ -1,6 +1,5 @@
 package Vue;
 
-import Modele.Case;
 import Modele.Grille;
 
 import javax.imageio.ImageIO;
@@ -11,11 +10,6 @@ import java.io.FileInputStream;
 
 public class Affichage extends JComponent {
     private ZoneGauffre zoneGauffre;
-
-    int largeurFenetre;
-    int hauteurFenetre;
-    int largeurGauffre;
-    int hauteurGauffre;
 
     public static Image charge(String nom) {
         try {
@@ -33,18 +27,12 @@ public class Affichage extends JComponent {
 
     @Override
     protected void paintComponent(Graphics g) {
-        largeurFenetre = getSize().width;
-        largeurGauffre = largeurFenetre - largeurFenetre / 3;
-        hauteurFenetre = getSize().height;
-        hauteurGauffre = hauteurFenetre;
-        this.zoneGauffre.paintGauffre(g, largeurGauffre, hauteurGauffre);
+        this.zoneGauffre.setLargeurGauffre(getSize().width - getSize().width / 3);
+        this.zoneGauffre.setHauteurGauffre(getSize().height);
+        this.zoneGauffre.paintGauffre(g);
     }
 
-    public int getHauteurGrille() {
-        return hauteurGauffre;
-    }
-
-    public int getLargeurGrille() {
-        return largeurGauffre;
+    public ZoneGauffre getZoneGauffre() {
+        return zoneGauffre;
     }
 }
