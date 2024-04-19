@@ -17,7 +17,7 @@ public class Affichage extends JComponent {
         } catch (Exception e) {
             System.err.println("Impossible de charger l'image " + nom);
             System.exit(1);
-            return null;
+            return null; //tatatata
         }
     }
 
