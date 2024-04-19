@@ -15,7 +15,7 @@ public class Joueur {
                 this.type = TYPEIIAALEATOIRE;
                 break;
             default:
-                System.out.println("type d'utilisateur pas encore implementer");
+                System.out.println("type d'utilisateur pas encore implementé");
         }
         this.joueurActif = false;
     }
@@ -28,7 +28,7 @@ public class Joueur {
                 this.type = TYPEIIAALEATOIRE;
                 break;
             default:
-                System.out.println("type d'utilisateur pas encore implementer");
+                System.out.println("type d'utilisateur pas encore implementé");
         }
         this.joueurActif = estActif;
     }
