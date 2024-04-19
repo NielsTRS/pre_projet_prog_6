@@ -9,7 +9,7 @@ public class JeuPrincipal implements Runnable {
 
     @Override
     public void run() {
-        JFrame frame = new JFrame("Exam PROG6");
+        JFrame frame = new JFrame("Gaufre empoisonee");
         Jeu.start(frame);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500, 500);
