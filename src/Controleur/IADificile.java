@@ -5,8 +5,9 @@ public class IADificile extends IA
 {
     private Arbre config;
 
-    IADificile()
+    IADificile(Jeu j)
     {
+        this.grille = j.getGrille();
         initConfig();
     }
 

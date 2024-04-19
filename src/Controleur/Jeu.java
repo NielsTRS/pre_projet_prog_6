@@ -1,7 +1,6 @@
 package Controleur;
 
 import Modele.Grille;
-import Modele.Case;
 import Vue.Affichage;
 
 import javax.swing.*;
@@ -11,6 +10,8 @@ import java.awt.event.MouseEvent;
 public class Jeu extends MouseAdapter {
     private Grille grille;
     private Affichage affichage;
+
+    private IA ia;
 
     public static void start(JFrame frame) {
         Grille grille = new Grille(6, 7); // A MODIFIER
@@ -23,6 +24,21 @@ public class Jeu extends MouseAdapter {
     public Jeu(Grille grille, Affichage affichage) {
         this.grille = grille;
         this.affichage = affichage;
+        this.ia = IA.nouvelle(this, "Aleatoire");// A MODIFIER POUR CHANGER L'IA 
+    }
+
+    void tourIA()
+    {
+        if(ia != null)
+        {
+            ia.joue();
+            affichage.repaint();
+        }
+    }
+
+    Grille getGrille()
+    {
+        return this.grille;
     }
 
     @Override
@@ -45,6 +61,7 @@ public class Jeu extends MouseAdapter {
 
             grille.mange(x, y);
             affichage.repaint();
+            tourIA();
         }
     }
 }

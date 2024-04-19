@@ -6,8 +6,9 @@ import java.util.Random;
 public class IAAleatoire extends IA
 {
     Random r;
-    public IAAleatoire()
+    public IAAleatoire(Jeu j)
     {
+        this.grille = j.getGrille();
         r = new Random();
     }
 

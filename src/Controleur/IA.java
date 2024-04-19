@@ -11,10 +11,10 @@ public abstract class IA
 		IA resultat = null;
 		switch (ia) {
 			case "Aleatoire":
-				resultat = new IAAleatoire();
+				resultat = new IAAleatoire(j);
 				break;
-			case "dificile":
-				resultat = new IADificile();
+			case "Dificile":
+				resultat = new IADificile(j);
 				break;
 			default:
 				System.out.println("IA de type " + ia + " non supportée");
