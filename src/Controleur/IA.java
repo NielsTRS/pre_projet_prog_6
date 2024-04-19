@@ -13,6 +13,9 @@ public abstract class IA
 			case "Aleatoire":
 				resultat = new IAAleatoire();
 				break;
+			case "dificile":
+				resultat = new IADificile();
+				break;
 			default:
 				System.out.println("IA de type " + ia + " non supportée");
 		}
