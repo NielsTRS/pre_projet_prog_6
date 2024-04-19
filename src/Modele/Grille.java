@@ -12,6 +12,7 @@ public class Grille implements Cloneable{
         this.lignes = lignes;
         this.colonnes = colonnes;
         this.ajouterCases();
+        this.fin = false;
     }
 
     public Grille(Grille g) {

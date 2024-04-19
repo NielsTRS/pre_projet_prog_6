@@ -22,11 +22,6 @@ public abstract class IA
 		return resultat;
 	}
 
-    public final void simuleCoups() {
-		//grille= grille.clone();
-		joue();
-	}
-
 	void joue() 
 	{
 

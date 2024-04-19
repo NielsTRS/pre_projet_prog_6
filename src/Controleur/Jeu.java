@@ -24,7 +24,8 @@ public class Jeu extends MouseAdapter {
     public Jeu(Grille grille, Affichage affichage) {
         this.grille = grille;
         this.affichage = affichage;
-        this.ia = IA.nouvelle(this, "Aleatoire");// A MODIFIER POUR CHANGER L'IA 
+        ////////commenter pour jouer sans IA ////////////
+        this.ia = IA.nouvelle(this, "Aleatoire");
     }
 
     void tourIA()
@@ -61,7 +62,10 @@ public class Jeu extends MouseAdapter {
 
             grille.mange(x, y);
             affichage.repaint();
-            tourIA();
+            if(!this.grille.getFin())
+            {
+                tourIA();
+            }
         }
     }
 }
