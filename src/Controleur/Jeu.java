@@ -32,18 +32,31 @@ public class Jeu extends MouseAdapter {
         //this.ia = IA.nouvelle(this, "Aleatoire");
     }
 
-    void tourIA()
-    {
-        if(ia != null)
-        {
+    void tourIA() {
+        if (ia != null) {
             ia.joue();
             affichage.repaint();
         }
     }
 
-    Grille getGrille()
-    {
+    Grille getGrille() {
         return this.grille;
+    }
+
+    public void annuler() {
+        Coup coup = historique.annulerCoup();
+        if (coup != null) {
+            grille.annuler(coup.getX(), coup.getY());
+            affichage.repaint();
+        }
+    }
+
+    public void refaire() {
+        Coup coup = historique.refaireCoup();
+        if (coup != null) {
+            grille.mange(coup.getX(), coup.getY());
+            affichage.repaint();
+        }
     }
 
     @Override
@@ -67,8 +80,7 @@ public class Jeu extends MouseAdapter {
             grille.mange(x, y);
             historique.ajouterCoup(new Coup(x, y));
             affichage.repaint();
-            if(!this.grille.getFin())
-            {
+            if (!this.grille.getFin()) {
                 tourIA();
             }
         }
