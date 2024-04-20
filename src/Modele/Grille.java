@@ -2,7 +2,7 @@ package Modele;
 
 import java.util.ArrayList;
 
-public class Grille implements Cloneable{
+public class Grille implements Cloneable {
     private int lignes;
     private int colonnes;
     private ArrayList<Case> cases;
@@ -27,7 +27,7 @@ public class Grille implements Cloneable{
         for (int j = 0; j < this.lignes; j++) {
             for (int i = 0; i < this.colonnes; i++) {
                 Case c = new Case(i, j);
-                if(i == 0 && j == 0){
+                if (i == 0 && j == 0) {
                     c.empoisonnerCase();
                 }
                 this.cases.add(c);
@@ -42,8 +42,20 @@ public class Grille implements Cloneable{
                 if (!c.getEstMange()) {
                     c.mangerCase();
                 }
-                if(c.getEstPoisson()){
+                if (c.getEstPoisson()) {
                     this.fin = true;
+                }
+            }
+        }
+    }
+
+    public void annuler(int x, int y) {
+        for (int j = y; j < lignes; j++) {
+            for (int i = x; i < colonnes; i++) {
+                Case c = getCase(i, j);
+                c.resetCase();
+                if (i == 0 && j == 0) {
+                    c.empoisonnerCase();
                 }
             }
         }
@@ -70,8 +82,7 @@ public class Grille implements Cloneable{
     }
 
     @Override
-    public Grille clone()
-    {
+    public Grille clone() {
         return new Grille(this);
     }
 }

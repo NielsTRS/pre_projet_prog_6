@@ -23,6 +23,11 @@ public class Case {
         this.estPoison = true;
     }
 
+    public void resetCase(){
+        this.estMange = false;
+        this.estPoison = false;
+    }
+
     public int getX() {
         return x;
     }

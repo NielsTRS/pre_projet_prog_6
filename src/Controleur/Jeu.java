@@ -1,6 +1,8 @@
 package Controleur;
 
+import Modele.Coup;
 import Modele.Grille;
+import Modele.Historique;
 import Vue.Affichage;
 
 import javax.swing.*;
@@ -10,6 +12,7 @@ import java.awt.event.MouseEvent;
 public class Jeu extends MouseAdapter {
     private Grille grille;
     private Affichage affichage;
+    private Historique historique;
 
     private IA ia;
 
@@ -24,8 +27,9 @@ public class Jeu extends MouseAdapter {
     public Jeu(Grille grille, Affichage affichage) {
         this.grille = grille;
         this.affichage = affichage;
+        this.historique = new Historique();
         ////////commenter pour jouer sans IA ////////////
-        this.ia = IA.nouvelle(this, "Aleatoire");
+        //this.ia = IA.nouvelle(this, "Aleatoire");
     }
 
     void tourIA()
@@ -61,11 +65,20 @@ public class Jeu extends MouseAdapter {
             System.out.println("Clic en (" + x + ", " + y + ")");
 
             grille.mange(x, y);
+            historique.ajouterCoup(new Coup(x, y));
             affichage.repaint();
             if(!this.grille.getFin())
             {
                 tourIA();
             }
+        }
+    }
+
+    public void annuler(){
+        Coup coup = historique.annulerCoup();
+        if(coup != null){
+            grille.annuler(coup.getX(), coup.getY());
+            affichage.repaint();
         }
     }
 }
