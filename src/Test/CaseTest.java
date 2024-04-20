@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 public class CaseTest {
     @Test
     public void testXY() {
-        Case c = new Case(0, 0);
+        Case c = new Case(1, 1);
         assert c.getX() == 0 && c.getY() == 0;
     }
 
