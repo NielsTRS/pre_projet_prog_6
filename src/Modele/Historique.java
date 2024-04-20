@@ -5,30 +5,57 @@ import java.util.Stack;
 
 public class Historique {
 
-    private Stack<Coup> coups;
+    private Stack<Coup> historiqueCoups;
+    private Stack<Coup> refaireCoups;
 
     public Historique() {
-        this.coups = new Stack<>();
+        this.historiqueCoups = new Stack<>();
+        this.refaireCoups = new Stack<>();
     }
 
     public void ajouterCoup(Coup action) {
-        coups.push(action);
+        historiqueCoups.push(action);
+        refaireCoups.clear();
     }
 
     public Coup annulerCoup() {
-        if (!coups.isEmpty()) {
-            return coups.pop();
+        if (peutAnnuler()) {
+            Coup coup = historiqueCoups.pop();
+            refaireCoups.push(coup);
+            return coup;
+        }
+        return null;
+    }
+
+    public boolean peutAnnuler() {
+        return !historiqueCoups.isEmpty();
+    }
+
+    public boolean peutRefaire() {
+        return !refaireCoups.isEmpty();
+    }
+
+    public Coup refaireCoup() {
+        if (peutRefaire()) {
+            Coup coup = refaireCoups.pop();
+            historiqueCoups.push(coup);
+            return coup;
         }
         return null;
     }
 
     @Override
     public String toString() {
-        String message = "Historique{";
-        for (Coup coup : coups) {
+        String message = "Historique{\n";
+        message += "Historique Coups: ";
+        for (Coup coup : historiqueCoups) {
             message += "coups= x:" + coup.getX() + " y:" + coup.getY() + "; ";
         }
-        message += "}";
+        message += "\nRefaire Coups: ";
+        for (Coup coup : refaireCoups) {
+            message += "coups= x:" + coup.getX() + " y:" + coup.getY() + "; ";
+        }
+        message += "\n}";
         return message;
     }
 

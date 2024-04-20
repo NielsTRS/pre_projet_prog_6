@@ -73,12 +73,4 @@ public class Jeu extends MouseAdapter {
             }
         }
     }
-
-    public void annuler(){
-        Coup coup = historique.annulerCoup();
-        if(coup != null){
-            grille.annuler(coup.getX(), coup.getY());
-            affichage.repaint();
-        }
-    }
 }
