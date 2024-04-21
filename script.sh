@@ -11,7 +11,7 @@ echo "La construction Maven a réussi."
 
 # Exécuter l'application Java
 echo "Exécution de l'application Java..."
-java -jar target/pre_projet-1.jar
+java -jar target/*.jar
 if [ $? -ne 0 ]; then
     echo "L'application Java a échoué à s'exécuter !"
     exit 1
