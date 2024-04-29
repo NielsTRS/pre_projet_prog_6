@@ -18,7 +18,7 @@ public class Jeu extends MouseAdapter {
 
     public static void start(JFrame frame) {
         Grille grille = new Grille(6, 7); // A MODIFIER
-        Affichage affichage = new Affichage(grille);
+        Affichage affichage = new Affichage(grille, frame);
         Jeu j = new Jeu(grille, affichage);
         frame.add(affichage);
         affichage.addMouseListener(j);
@@ -28,7 +28,7 @@ public class Jeu extends MouseAdapter {
         this.grille = grille;
         this.affichage = affichage;
         this.historique = new Historique();
-        ////////commenter pour jouer sans IA ////////////
+        /*commenter pour jouer sans IA */
         //this.ia = IA.nouvelle(this, "Aleatoire");
     }
 

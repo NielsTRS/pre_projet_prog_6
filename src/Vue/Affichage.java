@@ -5,11 +5,15 @@ import Modele.Grille;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.FileInputStream;
 
 
 public class Affichage extends JComponent {
     private ZoneGauffre zoneGauffre;
+    private ZoneBouton zoneBouton;
+    private JFrame frame;
 
     public static Image charge(String nom) {
         try {
@@ -21,8 +25,12 @@ public class Affichage extends JComponent {
         }
     }
 
-    public Affichage(Grille grille) {
+    public Affichage(Grille grille, JFrame frame) {
+        this.frame = frame;
         this.zoneGauffre = new ZoneGauffre(grille);
+        this.zoneBouton = new ZoneBouton(frame);
+
+
     }
 
     @Override

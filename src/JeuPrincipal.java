@@ -2,6 +2,10 @@ import javax.swing.*;
 
 import Controleur.Jeu;
 
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 public class JeuPrincipal implements Runnable {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new JeuPrincipal());
