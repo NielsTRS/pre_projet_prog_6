@@ -13,8 +13,8 @@ public abstract class IA
 			case "Aleatoire":
 				resultat = new IAAleatoire(j);
 				break;
-			case "Dificile":
-				resultat = new IADificile(j);
+			case "Difficile":
+				resultat = new IADifficile(j);
 				break;
 			default:
 				System.out.println("IA de type " + ia + " non supportée");
@@ -25,5 +25,10 @@ public abstract class IA
 	void joue() 
 	{
 
+	}
+
+	void joue(int precedentX, int precedentY)
+	{
+		joue();
 	}
 }

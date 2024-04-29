@@ -2,63 +2,116 @@ package Structure;
 
 import java.util.ArrayList;
 
-import Modele.Coup;
-import Modele.Grille;
-
 public class Noeud 
 {
     Noeud parent;
-    Grille configuration;
-    Coup coup;
+    // Grille configuration;
+    // Coup coup;
     ArrayList<Noeud> fils;
 
-    public Noeud(Grille g)
+    int x;
+    int y;
+
+    boolean coupGagnant;
+
+    public Noeud(int x, int y)
     {
-        this.parent = null;
-        this.configuration = g;
+        this.x = x;
+        this.y = y;
         this.fils = new ArrayList<>();
-        this.coup = null;
+        if(this.x == 0 && this.y== 0)
+        {
+            this.coupGagnant = false;
+        }
+        else
+        {
+            this.coupGagnant = true;
+        }
+
     }
 
-    public Noeud(Grille g, Coup c)
+    // constructeur racine
+    public Noeud()
     {
-        this.parent = null;
-        this.configuration = g;
+        this.x = -1;
+        this.y = -1;
         this.fils = new ArrayList<>();
-        this.coup = new Coup(c.getX(), c.getY());
+        this.coupGagnant = false;
     }
 
-    public void ajouteFils(Grille g, Coup c)
+    public int getX()
     {
-        Noeud n = new Noeud(g, c);
-        n.parent=this;
+        return this.x;
+    }
+
+    public int getY()
+    {
+        return this.y;
+    }
+
+    public void creeFils(Noeud n)
+    {
+        n.parent = this;
         this.fils.add(n);
     }
+
+    public void setCoupcoupGagnant(boolean b)
+    {
+        this.coupGagnant = b;
+    }
+
+    public boolean estCoupGagnant()
+    {
+        return this.coupGagnant;
+    }
+
+    // public Noeud(Grille g)
+    // {
+    //     this.parent = null;
+    //     this.configuration = g;
+    //     this.fils = new ArrayList<>();
+    //     this.coup = null;
+    // }
+
+    // public Noeud(Grille g, Coup c)
+    // {
+    //     this.parent = null;
+    //     this.configuration = g;
+    //     this.fils = new ArrayList<>();
+    //     this.coup = new Coup(c.getX(), c.getY());
+    // }
+
+    // public void ajouteFils(Grille g, Coup c)
+    // {
+    //     Noeud n = new Noeud(g, c);
+    //     n.parent=this;
+    //     this.fils.add(n);
+    // }
 
     public Noeud getParent()
     {
         return this.parent;
     }
 
-    public Coup getCoup()
-    {
-        return this.coup;
-    }
+    // public Coup getCoup()
+    // {
+    //     return this.coup;
+    // }
 
-    public Grille getConfig()
-    {
-        return this.configuration;
-    }
+    // public Grille getConfig()
+    // {
+    //     return this.configuration;
+    // }
 
     public ArrayList<Noeud> getFils()
     {
         return this.fils;
     }
 
-    public boolean configurationPerdante()
-    {
-        return this.configuration.getCase(0, 0).getEstMange();
-    }
+    // public boolean configurationPerdante()
+    // {
+    //     return this.configuration.getCase(0, 0).getEstMange();
+    // }
 
     public boolean estFeuille()
     {

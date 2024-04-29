@@ -1,18 +1,17 @@
 package Structure;
 
-import Modele.Grille;
 public class Arbre 
 {
     Noeud racine;
     public Noeud courant;
 
-    public Arbre(Grille g)
+    public Arbre()
     {
-        this.racine = new Noeud(g);
+        this.racine = new Noeud();
         this.courant = racine;
     }
 
-    public Noeud getRacince()
+    public Noeud getRacine()
     {
         return this.racine;
     }
