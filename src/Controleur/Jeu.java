@@ -28,13 +28,13 @@ public class Jeu extends MouseAdapter {
         this.grille = grille;
         this.affichage = affichage;
         this.historique = new Historique();
-        /*commenter pour jouer sans IA */
-        //this.ia = IA.nouvelle(this, "Aleatoire");
+        ////////commenter pour jouer sans IA ////////////
+        //this.ia = IA.nouvelle(this, "Dificile");
     }
 
-    void tourIA() {
+    void tourIA(int x, int y) {
         if (ia != null) {
-            ia.joue();
+            ia.joue(x, y);
             affichage.repaint();
         }
     }
@@ -81,7 +81,7 @@ public class Jeu extends MouseAdapter {
             historique.ajouterCoup(new Coup(x, y));
             affichage.repaint();
             if (!this.grille.getFin()) {
-                tourIA();
+                tourIA(x, y);
             }
         }
     }
