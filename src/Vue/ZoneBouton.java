@@ -1,5 +1,6 @@
 package Vue;
 
+import Controleur.Jeu;
 import Modele.Case;
 import Modele.Grille;
 
@@ -9,19 +10,23 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ZoneBouton {
-    public ZoneBouton(JFrame frame) {
+    Jeu jeu;
+
+    public ZoneBouton(JFrame frame, Jeu jeu) {
+        this.jeu = jeu;
         JButton button1 = new JButton("annuler");
         JButton button2 = new JButton("refaire");
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Le bouton a été cliqué !");
+                jeu.annuler();
             }
         });
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Le bouton 2 a été cliqué !");
+
+                jeu.refaire();
             }
         });
 

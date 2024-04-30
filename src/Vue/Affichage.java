@@ -12,7 +12,6 @@ import java.io.FileInputStream;
 
 public class Affichage extends JComponent {
     private ZoneGauffre zoneGauffre;
-    private ZoneBouton zoneBouton;
     private JFrame frame;
 
     public static Image charge(String nom) {
@@ -29,20 +28,6 @@ public class Affichage extends JComponent {
         this.frame = frame;
         Box boiteGlobal = Box.createVerticalBox();
         this.zoneGauffre = new ZoneGauffre(grille);
-        this.zoneBouton = new ZoneBouton(frame);
-
-        /*
-        JPanel panneauPrincipal = new JPanel();
-        panneauPrincipal.setLayout(new BorderLayout());
-
-        panneauPrincipal.add(this.zoneGauffre, BorderLayout.CENTER);
-
-        JPanel boutonPanel = new JPanel();
-        boutonPanel.add(zoneBouton.createButtonPanel());
-        panneauPrincipal.add(boutonPanel, BorderLayout.SOUTH);
-
-        frame.getContentPane().add(panneauPrincipal);
-        frame.setVisible(true);*/
     }
 
     @Override
