@@ -27,15 +27,27 @@ public class Affichage extends JComponent {
 
     public Affichage(Grille grille, JFrame frame) {
         this.frame = frame;
+        Box boiteGlobal = Box.createVerticalBox();
         this.zoneGauffre = new ZoneGauffre(grille);
         this.zoneBouton = new ZoneBouton(frame);
 
+        /*
+        JPanel panneauPrincipal = new JPanel();
+        panneauPrincipal.setLayout(new BorderLayout());
 
+        panneauPrincipal.add(this.zoneGauffre, BorderLayout.CENTER);
+
+        JPanel boutonPanel = new JPanel();
+        boutonPanel.add(zoneBouton.createButtonPanel());
+        panneauPrincipal.add(boutonPanel, BorderLayout.SOUTH);
+
+        frame.getContentPane().add(panneauPrincipal);
+        frame.setVisible(true);*/
     }
 
     @Override
     protected void paintComponent(Graphics g) {
-        this.zoneGauffre.setTaille(getSize().width - getSize().width / 3, getSize().height);
+        this.zoneGauffre.setTaille(getSize().width, getSize().height);
         this.zoneGauffre.paintGauffre(g);
     }
 
