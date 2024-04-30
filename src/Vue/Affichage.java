@@ -12,7 +12,6 @@ import java.io.FileInputStream;
 
 public class Affichage extends JComponent {
     private ZoneGauffre zoneGauffre;
-    private ZoneBouton zoneBouton;
     private JFrame frame;
 
     public static Image charge(String nom) {
@@ -27,15 +26,13 @@ public class Affichage extends JComponent {
 
     public Affichage(Grille grille, JFrame frame) {
         this.frame = frame;
+        Box boiteGlobal = Box.createVerticalBox();
         this.zoneGauffre = new ZoneGauffre(grille);
-        this.zoneBouton = new ZoneBouton(frame);
-
-
     }
 
     @Override
     protected void paintComponent(Graphics g) {
-        this.zoneGauffre.setTaille(getSize().width - getSize().width / 3, getSize().height);
+        this.zoneGauffre.setTaille(getSize().width, getSize().height);
         this.zoneGauffre.paintGauffre(g);
     }
 

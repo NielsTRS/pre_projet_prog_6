@@ -5,6 +5,7 @@ import Modele.Grille;
 import Modele.Historique;
 import Modele.IA;
 import Vue.Affichage;
+import Vue.ZoneBouton;
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
@@ -14,7 +15,6 @@ public class Jeu extends MouseAdapter {
     private Grille grille;
     private Affichage affichage;
     private Historique historique;
-
     private IA ia;
 
     public static void start(JFrame frame) {
@@ -22,6 +22,7 @@ public class Jeu extends MouseAdapter {
         Affichage affichage = new Affichage(grille, frame);
         Jeu j = new Jeu(grille, affichage);
         frame.add(affichage);
+        ZoneBouton zoneBouton = new ZoneBouton(frame, j);
         affichage.addMouseListener(j);
     }
 
@@ -29,8 +30,9 @@ public class Jeu extends MouseAdapter {
         this.grille = grille;
         this.affichage = affichage;
         this.historique = new Historique();
+
         ////////commenter pour jouer sans IA ////////////
-        this.ia = IA.nouvelle(this, "Aleatoire");
+        //this.ia = IA.nouvelle(this, "Aleatoire");
     }
 
     void tourIA(int x, int y) {

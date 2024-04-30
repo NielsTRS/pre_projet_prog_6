@@ -3,9 +3,10 @@ package Vue;
 import Modele.Case;
 import Modele.Grille;
 
+import javax.swing.*;
 import java.awt.*;
 
-public class ZoneGauffre {
+public class ZoneGauffre extends JComponent {
     Image gauffreEmpoisonne = Affichage.charge("res/Images/gauffre_empoisonne.png");
     Image gauffreNormal = Affichage.charge("res/Images/gauffre.png");
     private Grille grille;
