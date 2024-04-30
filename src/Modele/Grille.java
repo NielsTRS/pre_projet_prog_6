@@ -49,9 +49,9 @@ public class Grille implements Cloneable{
         }
     }
 
-    public void annuler(int x, int y) {
-        for (int j = y; j < lignes; j++) {
-            for (int i = x; i < colonnes; i++) {
+    public void annuler(int from_x, int from_y, int to_x, int to_y) {
+        for (int j = from_y; j < to_y; j++) {
+            for (int i = from_x; i < to_x; i++) {
                 Case c = getCase(i, j);
                 c.resetCase();
                 if (i == 0 && j == 0) {

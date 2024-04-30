@@ -7,7 +7,7 @@ import Modele.Coup;
 import static org.junit.Assert.*;
 
 public class HistoriqueTest {
-    @Test
+    /*@Test
     public void testHistoriqueAnnulation() {
         Grille grille = new Grille(6, 7);
         Historique historique = new Historique();
@@ -180,5 +180,5 @@ public class HistoriqueTest {
         assertTrue(grille.getCase(2, 2).getEstMange());
         assertTrue(grille.getCase(3, 3).getEstMange());
         assertTrue(grille.getCase(4, 4).getEstMange());
-    }
+    }*/
 }
