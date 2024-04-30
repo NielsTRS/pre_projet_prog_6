@@ -27,6 +27,10 @@ public class Historique {
         return null;
     }
 
+    public Stack<Coup> getHistoriqueCoups() {
+        return historiqueCoups;
+    }
+
     public boolean peutAnnuler() {
         return !historiqueCoups.isEmpty();
     }

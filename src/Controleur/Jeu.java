@@ -48,12 +48,14 @@ public class Jeu extends MouseAdapter {
 
     public void annuler() {
         Coup coup = historique.annulerCoup();
-        Coup coup1 = historique.annulerCoup();
+        Coup coup1 = null;
+        if(historique.peutAnnuler()){
+            coup1 = historique.getHistoriqueCoups().peek();
+        }
         if (coup != null) {
+            grille.annuler(coup.getX(), coup.getY());
             if (coup1 != null) {
-                grille.annuler(coup.getX(), coup.getY(), coup1.getX(), coup1.getY());
-            } else {
-                grille.annuler(coup.getX(), coup.getY(), grille.getLignes(), grille.getColonnes());
+                grille.mange(coup1.getX(), coup1.getY());
             }
             affichage.repaint();
         }
